@@ -5,6 +5,12 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class PayPalController {
 
-    PayPalService paypalService;
+    final PayPalService paypalService;
+
+    public PayPalController(PayPalService paypalService) {
+        this.paypalService = paypalService;
+    }
+
+    
 
 }
