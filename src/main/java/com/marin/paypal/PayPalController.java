@@ -17,4 +17,8 @@ public class PayPalController {
         return "home";
     }
 
+    public String payment() {
+        return "";
+    }
+
 }
