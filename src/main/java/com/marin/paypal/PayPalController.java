@@ -58,4 +58,18 @@ public class PayPalController {
         return "cancel";
     }
 
+    @GetMapping(value = SUCCESS_URL)
+    public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId) {
+        try {
+            Payment payment = service.executePayment(paymentId, payerId);
+            System.out.println(payment.toJSON());
+            if (payment.getState().equals("approved")) {
+                return "success";
+            }
+        } catch (PayPalRESTException e) {
+            System.out.println(e.getMessage());
+        }
+        return "redirect:/";
+    }
+
 }
