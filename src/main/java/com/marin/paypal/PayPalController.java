@@ -6,6 +6,7 @@ import com.paypal.base.rest.PayPalRESTException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PayPalController {
@@ -50,6 +51,11 @@ public class PayPalController {
         }
 
         return "redirect:/";
+    }
+
+    @GetMapping(value = CANCEL_URL)
+    public String cancelPay() {
+        return "cancel";
     }
 
 }
